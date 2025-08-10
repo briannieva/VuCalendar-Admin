@@ -1,0 +1,41 @@
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button class="nav-button" (click)="previousMonth()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <h2 class="month-year">{{ getMonthYearText() }}</h2>
+        <button class="nav-button" (click)="nextMonth()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="weekdays">
+        <div class="weekday" *ngFor="let day of weekdays">{{ day }}</div>
+      </div>
+      
+      <div class="calendar-grid">
+        <div 
+          *ngFor="let day of calendarDays" 
+          class="calendar-day"
+          [class.other-month]="!day.isCurrentMonth"
+          [class.today]="day.isToday"
+          [class.has-appointments]="day.appointments.length > 0"
+          (click)="selectDate(day.date)"
+        >
+          <span class="day-number">{{ day.day }}</span>
+          <div class="appointment-indicators" *ngIf="day.appointments.length > 0">
+            <div 
+              *ngFor="let appointment of day.appointments.slice(0, 3)" 
+              class="appointment-dot"
+              [class]="'type-' + appointment.type"
+            ></div>
+            <span *ngIf="day.appointments.length > 3" class="more-indicator">+{{ day.appointments.length - 3 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,69 @@
+    <div class="agenda-container">
+      <div class="agenda-header">
+        <h2 class="agenda-title">Agenda del {{ getFormattedDate() }}</h2>
+        <div class="agenda-stats">
+          <span class="stat-item">
+            <span class="stat-number">{{ citas.length }}</span>
+            <span class="stat-label">N° Citas</span>
+          </span>
+          <!-- <span class="stat-item">
+            <span class="stat-number">{{ getCompletedCount() }}</span>
+            <span class="stat-label">Completadas</span>
+          </span> -->
+        </div>
+      </div>
+
+      <div class="appointments-list" *ngIf="citas.length > 0; else noAppointments">
+        <div 
+          *ngFor="let cita of citas" 
+          class="appointment-card"
+          [class]="'status-' + cita.status + ' type-' + cita.type"
+        >
+          <div class="appointment-time">
+            <div class="time-block">
+              <span class="time">{{ cita.time }}</span>
+              <span class="duration">{{ cita.duration }}min</span>
+            </div>
+            <div class="type-indicator" [class]="'type-' + cita.type">
+              ✅
+            </div>
+          </div>
+
+          <div class="appointment-details">
+            <div class="patient-info">
+              <h3 class="patient-name">{{ cita.patient.name }}</h3>
+              <div class="patient-meta">
+                <span class="phone">WhatsApp Cliente: <a href="https://wa.me/{{ cita.patient.phone }}" target="_blank">{{ cita.patient.phone }}</a></span>
+              </div>
+              <div class="class appointment-meta">
+                <span class="appointment-sesion">{{ cita.type }}</span>
+              </div>
+            </div>
+            
+            <div class="appointment-meta">
+              <span class="appointment-type">{{ cita.service }}</span>
+              <span class="appointment-notes" *ngIf="cita.notes">{{ cita.notes }}</span>
+            </div>
+          </div>
+
+          <div class="appointment-actions">
+            <div class="status-badge" [class]="'status-' + cita.status">
+              {{ cita.status }}
+            </div>
+
+            <div class="status-badge" [class]="'status-' + 'scheduled'">
+              $ {{ cita.price }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noAppointments>
+        <div class="no-appointments">
+          <div class="no-appointments-icon">📅</div>
+          <h3>No hay citas programadas</h3>
+          <p>No tienes citas programadas para este día.</p>
+        </div>
+      </ng-template>
+    </div>
+

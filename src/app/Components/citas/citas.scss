@@ -1,0 +1,289 @@
+.agenda-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      padding: 24px;
+    }
+
+    .agenda-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .agenda-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .agenda-stats {
+      display: flex;
+      gap: 24px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .appointments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .appointment-card {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #fefefe;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .appointment-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    .appointment-card.status-completed {
+      opacity: 0.75;
+      background: #f8fafc;
+    }
+
+    .appointment-card.status-in-progress {
+      border-left: 4px solid #2563eb;
+      background: linear-gradient(135deg, #dbeafe 0%, #fefefe 100%);
+    }
+
+    .appointment-time {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: 20px;
+      min-width: 120px;
+    }
+
+    .time-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .duration {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .type-indicator {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .type-indicator.type-consultation { background: #dbeafe; }
+    .type-indicator.type-emergency { background: #fee2e2; }
+    .type-indicator.type-followup { background: #dcfce7; }
+    .type-indicator.type-checkup { background: #fed7aa; }
+
+    .appointment-details {
+      flex: 1;
+      margin-right: 16px;
+    }
+
+    .patient-info {
+      margin-bottom: 8px;
+    }
+
+    .patient-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+    }
+
+    .patient-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .appointment-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .appointment-type {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2563eb;
+    }
+
+    .appointment-sesion {
+      font-size: 14px;
+      font-weight: 500;
+      color: #132d64;
+    }
+
+    .appointment-notes {
+      font-size: 14px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .appointment-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .status-badge.status-scheduled {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .status-badge.status-in-progress {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .status-badge.status-Agendada {
+      background: #dcfce7;
+      color: #059669;
+    }
+
+    .status-badge.status-cancelled {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .start-btn {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .start-btn:hover {
+      background: #bfdbfe;
+    }
+
+    .complete-btn {
+      background: #dcfce7;
+      color: #059669;
+    }
+
+    .complete-btn:hover {
+      background: #bbf7d0;
+    }
+
+    .no-appointments {
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .no-appointments-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .no-appointments h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+
+    .no-appointments p {
+      color: #64748b;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .agenda-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .agenda-stats {
+        align-self: stretch;
+        justify-content: space-around;
+      }
+
+      .appointment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .appointment-time {
+        margin-right: 0;
+        min-width: auto;
+      }
+
+      .appointment-actions {
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .action-buttons {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
