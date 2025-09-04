@@ -46,12 +46,16 @@ export class EditCita implements OnInit {
   }
 
   guardarCambios() {
+    let inicio = this.citaData.date.substring(0, 11);
+    let fin = this.citaData.date.slice(-8);
+    let fechahora = inicio + this.horaActual + fin;
+    
     const datosActualizados = {
       "nombreServicioCita": this.servicioActual,
-      "fechaHoraCita": this.horaActual,
+      "fechaHoraCita": fechahora,
       "tipoSesionCita": this.sesionActual
     };
-    
+
     this.citaService.editCita(this.idCita, datosActualizados).subscribe((resp:any) => {
       this.citaService.emitirActualizacion();
     })
