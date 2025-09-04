@@ -48,7 +48,7 @@ export class EditCita implements OnInit {
   guardarCambios() {
     const datosActualizados = {
       "nombreServicioCita": this.servicioActual,
-      "hora": this.horaActual,
+      "fechaHoraCita": this.horaActual,
       "tipoSesionCita": this.sesionActual
     };
     
