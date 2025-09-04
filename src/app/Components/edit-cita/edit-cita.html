@@ -1,0 +1,72 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Cita</h4>
+      <button type="button" class="btn-close" (click)="cancelar()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+
+        <div class="mb-3">
+          <label for="servicio" class="form-label">Servicio</label>
+            <select
+              class="form-select"
+              id="servicio"
+              name="servicio"
+              [(ngModel)]="servicioActual"
+              (change)="onServicioChange()"
+            >
+              <option disabled [value]="''">{{servicioActual}}</option>
+              <option *ngFor="let servicio of servicios" [ngValue]="servicio.nombreServicio">
+                {{ servicio.nombreServicio }}
+              </option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+          <label for="hora" class="form-label">Hora</label>
+            <select
+              class="form-select"
+              id="horarios"
+              name="horarios"
+              [(ngModel)]="horaActual"
+              (change)="onHoraChange()"
+            >
+              <option disabled [value]="''">{{horaActual}}</option>
+              <option *ngFor="let hora of horarios" [ngValue]="hora.horaCita">
+                {{ hora.horaCita }}
+              </option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+          <label for="sesion" class="form-label">Sesión</label>
+            <select
+              class="form-select"
+              id="sesiones"
+              name="sesiones"
+              [(ngModel)]="sesionActual"
+              (change)="onSesionChange()"
+            >
+              <option disabled [value]="''">{{sesionActual}}</option>
+              <option *ngFor="let sesion of sesiones" [ngValue]="sesion.tipoSesion">
+                {{ sesion.tipoSesion }}
+              </option>
+            </select>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="cancelar()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">
+        Guardar Cambios
+      </button>
+    </div>
+  </div>
+</div>

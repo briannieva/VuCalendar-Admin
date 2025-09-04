@@ -51,9 +51,14 @@
               {{ cita.status }}
             </div>
 
-            <div class="status-badge" [class]="'status-' + 'scheduled'">
-              $ {{ cita.price }}
-            </div>
+          <div class="appointment-buttons">
+            <button
+              class="btn-modificar"
+              (click)="openModalEditCita(cita.id)"
+            >
+              ✏️ Modificar Cita
+            </button>
+          </div>
           </div>
         </div>
       </div>
